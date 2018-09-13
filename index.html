@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>Train Tracking Application</title>
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Train Spotting</h1>
+        <p class="lead">Keep track of trains with this lil application.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" id="tracked-trains">
+                <div class="card-header">My Train List:</div>
+                <div class="card-body">
+
+                </div>
+            </div>
+            <br>
+            <div class="card" id="add-train">
+                <div class="card-header">Add a New Train:</div>
+                <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Train Name</label>
+                        <input type="name" class="form-control" id="input-name" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="destination" class="form-control" id="input-destination" placeholder="Destination">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">First Train Time HH:MM</label>
+                        <input type="time" class="form-control" id="input-time" placeholder="HH:MM">
+                    </div>
+                    <div class="form-group">
+                        <label for="frequency">Frequency (minutes)</label>
+                        <input type="frequency" class="form-control" id="input-frequency" placeholder="Minutes">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>    
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="assets/javascript/train-app.js"></script>
+</body>
+</html>
