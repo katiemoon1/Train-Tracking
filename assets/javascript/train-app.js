@@ -11,6 +11,69 @@ var config = {
   };
   firebase.initializeApp(config);
 
+// Creating a variable for the Firebase database
+var database = firebase.database();
 
+// Creating the initial variables for the entries
+var name = "";
+var destination = "";
+var initialTime = "";
+var timeFormat = "HH:mm";
+var frequency = 0;
+
+
+// Capturing button click to submit a new train
+$("#submit-train").on("click", function(event) {
+    event.preventDefault();
+
+    name = $("#input-name").val().trim();
+    destination = $("#input-destination").val().trim();
+    initialTime = $("#input-time").val().trim();
+    var format = dateFns.format;
+    var convertedTime = format(initialTime, timeFormat);
+    firstTime = dateFns.setHours(dateFns.setMinutes(new Date(), convertedTime));
+    frequency = $("#input-frequency").val().trim();
+    difference = dateFns.differenceInMinutes(new Date(), dateFns.subYears(firstTime, 1));
+    timeApart = difference % frequency;
+    minutesUntilDeparture = frequency - timeApart;
+    console.log(minutesUntilDeparture);
+    nextTrain = dateFns.addMinutes(new Date(), minutesUntilDeparture);
+
+    database.ref().push({
+      name: name,
+      destination: destination,
+      initialTime: initialTime,
+      frequency: frequency,
+      firstTime: firstTime,
+      minutesUntilDeparture: minutesUntilDeparture,
+      nextTrain: nextTrain,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+});
+
+// Firebase watcher
+database.ref().on("child_added", function(childSnapshot) {
+
+  var snapvalue = childSnapshot.val();
+
+  console.log(snapvalue.name);
+  console.log(snapvalue.destination);
+  console.log(snapvalue.initialTime);
+  console.log(snapvalue.frequency);
+  console.log(snapvalue.firstTime);
+  console.log(snapvalue.minutesUntilDeparture);
+  console.log(snapvalue.nextTrain);
+  console.log(snapvalue.dateAdded);
+
+  $("#train-data").append(
+    "<tr>" +
+    "<td>" + snapvalue.name + "</td>" +
+    "<td>" + snapvalue.destination + "</td>" +
+    "<td>" + snapvalue.frequency + "</td>" +
+    "<td>" + snapvalue.nextTrain + "</td>" +
+    "<td>" + snapvalue.minutesUntilDeparture + "</td>" +
+    "</tr>"
+  );
+});
 
 });

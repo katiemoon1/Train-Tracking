@@ -31,7 +31,7 @@
             </div>
             <br>
             <div class="card" id="tracked-trains">
-                <div class="card-header">My Train List:</div>
+                <div class="card-header">My Super Awesome Trains:</div>
                 <div class="card-body">
                     <table class="table table-hover" id="train-list">
                         <thead>
@@ -41,6 +41,8 @@
                             <th scope="col">Next Arrival</th>
                             <th scope="col">Minutes Away</th>
                         </thead>
+                        <tbody id="train-data">
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -65,7 +67,7 @@
                         <label for="frequency">Frequency (minutes)</label>
                         <input type="frequency" class="form-control" id="input-frequency" placeholder="Minutes">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="submit-train">Submit</button>
                 </form>    
             </div>
             </div>
@@ -79,7 +81,9 @@
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.min.js"></script>
 <script src="assets/javascript/train-app.js"></script>
 </body>
 </html>
