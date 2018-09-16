@@ -12,16 +12,36 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4">Train Spotting</h1>
-        <p class="lead">Keep track of trains with this lil application.</p>
+        <p class="lead">Keep track of your favorite trains with this lil application.</p>
     </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                <div class="card" style="width: 18rem;" id="picture">
+                    <img class="card-img-top" src="assets/images/trainspotting.png" alt="Train Spotting">
+                    <div class="card-body">
+                        <p class="card-text">Choose your future. Choose life.</p>
+                </div>
+                </div>
+            </div>   
+            </div>
+            <br>
             <div class="card" id="tracked-trains">
                 <div class="card-header">My Train List:</div>
                 <div class="card-body">
-
+                    <table class="table table-hover" id="train-list">
+                        <thead>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </thead>
+                    </table>
                 </div>
             </div>
             <br>
