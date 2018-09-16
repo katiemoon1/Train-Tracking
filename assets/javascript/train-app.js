@@ -20,6 +20,8 @@ var destination = "";
 var initialTime = "";
 var timeFormat = "HH:mm";
 var frequency = 0;
+var format = dateFns.format;
+
 
 
 // Capturing button click to submit a new train
@@ -29,11 +31,9 @@ $("#submit-train").on("click", function(event) {
     name = $("#input-name").val().trim();
     destination = $("#input-destination").val().trim();
     initialTime = $("#input-time").val().trim();
-    var format = dateFns.format;
     var convertedTime = format(initialTime, timeFormat);
-    firstTime = dateFns.setHours(dateFns.setMinutes(new Date(), convertedTime));
     frequency = $("#input-frequency").val().trim();
-    difference = dateFns.differenceInMinutes(new Date(), dateFns.subYears(firstTime, 1));
+    difference = dateFns.differenceInMinutes(new Date(), dateFns.subYears(convertedTime, 1));
     timeApart = difference % frequency;
     minutesUntilDeparture = frequency - timeApart;
     console.log(minutesUntilDeparture);
@@ -44,7 +44,6 @@ $("#submit-train").on("click", function(event) {
       destination: destination,
       initialTime: initialTime,
       frequency: frequency,
-      firstTime: firstTime,
       minutesUntilDeparture: minutesUntilDeparture,
       nextTrain: nextTrain,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
@@ -60,7 +59,6 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log(snapvalue.destination);
   console.log(snapvalue.initialTime);
   console.log(snapvalue.frequency);
-  console.log(snapvalue.firstTime);
   console.log(snapvalue.minutesUntilDeparture);
   console.log(snapvalue.nextTrain);
   console.log(snapvalue.dateAdded);
