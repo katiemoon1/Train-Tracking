@@ -25,8 +25,11 @@
                 <div class="card" style="width: 18rem;" id="picture">
                     <img class="card-img-top" src="assets/images/trainspotting.png" alt="Train Spotting">
                     <div class="card-body">
-                        <p class="card-text">Choose your future. Choose life.</p>
-                </div>
+                        <p class="card-text">
+                            Choose your future.<br>
+                            Choose life.
+                        </p>
+                    </div>
                 </div>
             </div>   
             </div>
@@ -61,8 +64,8 @@
                         <input type="destination" class="form-control" id="input-destination" placeholder="Destination">
                     </div>
                     <div class="form-group">
-                        <label for="time">First Train Time HH:MM</label>
-                        <input type="time" class="form-control" id="input-time" placeholder="HH:MM">
+                        <label for="time">First Train Time HH:mm</label>
+                        <input type="time" data-format="HH:mm" class="form-control" id="input-time" placeholder="HH:mm">
                     </div>
                     <div class="form-group">
                         <label for="frequency">Frequency (minutes)</label>
@@ -75,10 +78,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

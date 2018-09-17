@@ -18,7 +18,7 @@ var database = firebase.database();
 var name = "";
 var destination = "";
 var initialTime = "";
-var timeFormat = "HH:mm";
+// var timeFormat = "HH:mm";
 var frequency = 0;
 var format = dateFns.format;
 
@@ -31,13 +31,18 @@ $("#submit-train").on("click", function(event) {
     name = $("#input-name").val().trim();
     destination = $("#input-destination").val().trim();
     initialTime = $("#input-time").val().trim();
-    var convertedTime = format(initialTime, timeFormat);
+    // Can currently get the time of the present (or perhaps a year back)
+    var convertedTime = format(dateFns.subYears(new Date(), 1), "HH:mm A");
+    console.log(convertedTime);
     frequency = $("#input-frequency").val().trim();
-    difference = dateFns.differenceInMinutes(new Date(), dateFns.subYears(convertedTime, 1));
-    timeApart = difference % frequency;
-    minutesUntilDeparture = frequency - timeApart;
+    var difference = dateFns.differenceInMinutes(new Date(), dateFns.subYears(convertedTime, 1));
+    console.log(difference);
+    var timeApart = difference % frequency;
+    console.log(timeApart);
+    var minutesUntilDeparture = frequency - timeApart;
     console.log(minutesUntilDeparture);
-    nextTrain = dateFns.addMinutes(new Date(), minutesUntilDeparture);
+    var nextTrain = dateFns.addMinutes(new Date(), minutesUntilDeparture);
+    console.log(nextTrain);
 
     database.ref().push({
       name: name,
