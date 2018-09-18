@@ -2,7 +2,7 @@ $(document).ready(() => {
 
 // Bringing in Firebase
 var config = {
-    apiKey: "AIzaSyCFGxI2aunPoDWYmMtKA9L45MuJ4sFfr0M",
+    apiKey: CONTACT ME,
     authDomain: "train-tracking-application.firebaseapp.com",
     databaseURL: "https://train-tracking-application.firebaseio.com",
     projectId: "train-tracking-application",
